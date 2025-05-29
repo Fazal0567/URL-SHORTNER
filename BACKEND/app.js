@@ -30,6 +30,13 @@ app.use("/api/user",user_routes)
 app.use("/api/auth",auth_routes)
 app.use("/api/create",short_url)
 app.get("/:id",redirectFromShortUrl)
+app.get('/',(req,res)=>{
+    res.send({
+        activeStatus : True,
+        error : false
+
+    })
+})
 
 app.use(errorHandler)
 
