@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const axiosInstance = axios.create({
-    baseURL:"https://url-shortner-backend-cxaj.onrender.com",
+    baseURL:"http://localhost:3000/",
     timeout:10000, //10s
     withCredentials:true
 })
