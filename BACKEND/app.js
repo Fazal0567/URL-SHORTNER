@@ -15,7 +15,10 @@ dotenv.config("./.env")
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://url-shortner-1-zb6a.onrender.com/', // your React app
+    credentials: true // 👈 this allows cookies to be sent
+}));
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -37,7 +40,7 @@ app.get('/',(req,res)=>{
 
 app.use(errorHandler)
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     connectDB()
     console.log("Server is running on http://localhost:3000");
 })
